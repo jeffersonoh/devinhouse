@@ -1,0 +1,77 @@
+FORMAT: 1A
+HOST: http://api.soundsoflife.com/v1
+
+
+# Sounds of Life API
+
+## About [/]
+
+Resources all Catalogs of all albums
+
+# Group Catalog [/catalog]
+
+
+## Albuns [/albuns/{albunsTitle}]
+
+### Find albuns by albunsTitle [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[Albuns])
+
++ Response 404 (application/json)
+    + Attributes (Error)
+
+## Albuns [/albuns/{authorName}]
+
+### Find albuns by authorName [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[Albuns])
+
++ Response 404 (application/json)
+    + Attributes (Error)
+
+
+# Group Purchase [/purchase]
+
+## Purchase[/purchase]
+
+### Create Purchase [POST]
+
++ Request Criar uma mensagem 
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+    + Attributes (Purchase)
+
++ Response 201 (application/json)
+    + Attributes (Created)
+
++ Response 400 (application/json)
+    + Attributes (Error)
+
+
+# Data Structures
+
+
+## Albuns (object)
++ id (string) - Id Album
++ name (string) - Name Album
++ author (string) - Author Albun
++ releasedate (string) - Date release
++ value (string) - Vaue Album
+
+
+## Purchase (object)
++ iduser (string) - Id user
++ idalbum (string) - Id album
+  
+## Error (object)
++ code: 400 (number) - Status code
++ message (string) - Mensagem do status
++ description (string) - Descrição do status
+
+## Created (object)
++ id (number) - Id gerado

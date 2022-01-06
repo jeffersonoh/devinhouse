@@ -1,0 +1,80 @@
+#%RAML 1.0
+---
+title: Sounds of Life API 
+baseUri: http://api.soundsoflife.com/{version}
+version: v1
+description: Resources all Catalogs of all albums
+
+/catalog:
+  description: Catalogs of all albums
+  /albuns:
+    description: Album 
+    
+    /{albunsTitle}:
+      description: Album title 
+      get:
+        responses:
+          200:
+            body: 
+              application/json:
+              type: Albuns[]
+
+    /{authorName}:
+      description: Album author name 
+      get:
+        responses:
+          200:
+            body: 
+              application/json:
+              type: Albuns[]       
+    
+    /release:
+      description: Date release album
+      get:
+        queryString: 
+           stardate: 
+             displayName: Start release date
+             type: number
+             description: Start range date release
+             example: 1980
+             required: true
+           enddate: 
+             displayName: Final release date
+             type: number
+             description: Final range date release
+             example: 2021
+             required: true
+        responses:
+           200:
+             body: 
+               application/json:
+               type: Albuns[]
+
+/purchase:
+   description: Object purchase album
+   put:
+     body:
+        application/json:
+          type: Purchase
+          example: 
+            value: 
+              iduser:  20 # ID User
+              idalbum: 30 # ID Album
+
+types:
+  
+  Albuns:
+    type: object
+    properties:
+      id: number
+      name: string
+      author: string
+      releasedate: number
+      value: number
+
+  Purchase:
+    type: object
+    properties:
+      iduser: number
+      idalbum: number
+

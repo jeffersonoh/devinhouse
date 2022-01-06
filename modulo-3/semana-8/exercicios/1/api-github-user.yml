@@ -1,0 +1,49 @@
+#%RAML 1.0
+---
+title: API GITHUB USER
+baseUri: https://api.github.com/{version}
+version: v1
+
+/users:
+  /{username}
+  get:
+  description: The Users API allows to get public and private information about the authenticated user
+  responses:
+    200:
+      body:
+         application/json:  
+            example: | 
+              {
+		"login": "jeffersonoh",
+		"id": 488537,
+		"node_id": "MDQ6VXNlcjQ4ODUzNw==",
+		"avatar_url": "https://avatars.githubusercontent.com/u/488537?v=4",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/jeffersonoh",
+		"html_url": "https://github.com/jeffersonoh",
+		"followers_url": "https://api.github.com/users/jeffersonoh/followers",
+		"following_url": "https://api.github.com/users/jeffersonoh/following{/other_user}",
+		"gists_url": "https://api.github.com/users/jeffersonoh/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/jeffersonoh/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/jeffersonoh/subscriptions",
+		"organizations_url": "https://api.github.com/users/jeffersonoh/orgs",
+		"repos_url": "https://api.github.com/users/jeffersonoh/repos",
+		"events_url": "https://api.github.com/users/jeffersonoh/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/jeffersonoh/received_events",
+		"type": "User",
+		"site_admin": false,
+		"name": "Jefferson Henrique",
+		"company": null,
+		"blog": "dev.delivery",
+		"location": "Brasil",
+		"email": null,
+		"hireable": true,
+		"bio": null,
+		"twitter_username": "jeffersonoh",
+		"public_repos": 21,
+		"public_gists": 0,
+		"followers": 12,
+		"following": 3,
+		"created_at": "2010-11-19T14:54:15Z",
+		"updated_at": "2021-07-26T03:50:37Z"
+	       }
